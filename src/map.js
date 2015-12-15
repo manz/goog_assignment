@@ -8,8 +8,8 @@ class Map {
         parent.appendChild(mapContainer);
 
         this._map = new google.maps.Map(mapContainer, {
-            center: {lat: 43.600, lng: 3.883},
-            zoom: 15,
+            center: {lat: 43.609571288668455, lng: 3.878150566101093},
+            zoom: 16,
             styles: [
                 {
                     featureType: "poi",
