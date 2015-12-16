@@ -79,7 +79,10 @@ class StoreLocator {
             var promises = [];
 
             data.bars.forEach((bar, index) => {
-                let promise = this.generateFeature(index, bar);
+                let promise = this.generateFeature(index, bar).catch(
+                    (error) => {
+                        console.error(error);
+                    });
                 promises.push(promise);
             });
 
