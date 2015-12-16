@@ -24,7 +24,11 @@ class MapsLoader {
             extraLibraries: ['places']
         };
 
-        Object.assign(this.options, options);
+        for (let option in options) {
+            if (options.hasOwnProperty(option)) {
+                this.options[option] = options[option];
+            }
+        }
     }
 
     /**
