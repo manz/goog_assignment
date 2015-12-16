@@ -26,15 +26,15 @@ class ListPanel {
     }
 
     clear() {
-        this._container.innerHTML = null;
+        this._container.innerHTML = '';
     }
 
     _renderStore(store) {
         var cell = document.createElement('div');
-        var streetView = 'https://maps.googleapis.com/maps/api/streetview?size=200x200&location={latlng}'.replace('{latlng}', store.geometry.coordinates[1] + ',' + store.geometry.coordinates[0]);
+        var streetView = 'https://maps.googleapis.com/maps/api/streetview?size=250x100&location={latlng}'.replace('{latlng}', store.geometry.coordinates[1] + ',' + store.geometry.coordinates[0]);
         cell.innerHTML = '<b>' + store.properties.name + '</b>' + '<br/>' +
-                store.properties.distance.text +'&nbsp;' + store.properties.duration.text +'<br/>' +
-                '<img src="'+ streetView +'"/>';
+            store.properties.distance.text + '&nbsp;' + store.properties.duration.text + '<br/>' +
+            '<img src="' + streetView + '"/>';
         return cell;
     }
 
