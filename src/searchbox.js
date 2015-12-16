@@ -11,12 +11,14 @@ class SearchBox {
         searchContainer.style.position = 'absolute';
         searchContainer.style.top = '5px';
         searchContainer.style.left = '5px';
-        searchContainer.style.width = '300px';
-        searchContainer.style.height = '35px';
-        searchContainer.style.backgroundColor = 'red';
+        searchContainer.style.width = '305px';
+        searchContainer.style.height = '20px';
+        searchContainer.style.boxShadow= 'black 0px 0px 2px';
+        searchContainer.style.borderRadius = '2px';
+        searchContainer.style.backgroundColor = 'white';
 
         var searchInput = document.createElement('input');
-        searchInput.style.width = '100%';
+        searchInput.style.width = '250px';
         searchInput.type = 'text';
 
         var searchClear = document.createElement('input');
