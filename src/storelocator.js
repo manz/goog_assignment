@@ -91,6 +91,7 @@ class StoreLocator {
 
     /**
      *
+     * @param id
      * @param data
      * @returns {Promise.<T>|*}
      */
