@@ -53,12 +53,13 @@ var mapStyle = [
 
 class Map {
     constructor(parent) {
-        var mapContainer = document.createElement('div');
-        mapContainer.style.width = '100%';
-        mapContainer.style.height = '100%';
-        parent.appendChild(mapContainer);
+        this.mapContainer = document.createElement('div');
+        this.mapContainer.style.width = '100%';
+        this.mapContainer.style.height = '100%';
+        parent.appendChild(this.mapContainer);
 
         this._map = new google.maps.Map(mapContainer, {
+        this._map = new google.maps.Map(this.mapContainer, {
             center: {lat: 43.609571288668455, lng: 3.878150566101093},
             zoom: 16,
             styles: mapStyle,
