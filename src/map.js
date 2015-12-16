@@ -1,5 +1,7 @@
 'use strict';
 
+const BoundsManager = require('./boundsmanager');
+
 var mapStyle = [
     {
         "featureType": "landscape",
@@ -58,7 +60,7 @@ class Map {
         this.mapContainer.style.height = '100%';
         parent.appendChild(this.mapContainer);
 
-        this._map = new google.maps.Map(mapContainer, {
+        this._padding = {};
         this._map = new google.maps.Map(this.mapContainer, {
             center: {lat: 43.609571288668455, lng: 3.878150566101093},
             zoom: 16,
@@ -115,6 +117,10 @@ class Map {
         });
     }
 
+    setPadding(padding) {
+        this._padding = padding;
+    }
+
     clearStores() {
         this._infoWindow.close();
         this._map.data.revertStyle();
@@ -141,10 +147,24 @@ class Map {
 
     displayStores(storesFeatures) {
         this.clearStores();
+
+        let computedStyle = window.getComputedStyle(this.mapContainer);
+
+        var boundsManager = new BoundsManager({
+            mapHeight: parseFloat(computedStyle.height),
+            mapWidth: parseFloat(computedStyle.width),
+            padding: this._padding
+        });
+
+        var centerAndZoom = boundsManager.getBoundsCenterAndZoom(this.getBounds(storesFeatures));
+
         this._map.data.addGeoJson({
             type: 'FeatureCollection',
             features: storesFeatures
-        })
+        });
+
+        this._map.setCenter(centerAndZoom.center);
+        this._map.setZoom(centerAndZoom.zoom);
     }
 }
 
