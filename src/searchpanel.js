@@ -40,8 +40,10 @@ class ListPanel {
 
     render(stores) {
         this.clear();
-        for (let store of stores) {
-            this._container.appendChild(this._renderStore(store));
+        for (let storeIndex in stores) {
+            if (stores.hasOwnProperty(storeIndex)) {
+                this._container.appendChild(this._renderStore(stores[storeIndex]));
+            }
         }
     }
 }
