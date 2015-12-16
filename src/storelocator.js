@@ -116,6 +116,7 @@ class StoreLocator {
 
     initialState() {
         this._geocodingLoader.remove();
+        this._mapComponent.setPadding({});
         if (!this._listPanel) {
             this._listPanel = new ListPanel(this.parent);
         }
@@ -132,7 +133,7 @@ class StoreLocator {
     nearest5State(location) {
         this._mapComponent._userLocationMarker.setPosition(location);
         this._mapComponent._userLocationMarker.setVisible(true);
-
+        this._mapComponent.setPadding({left: 200});
         this.computeDistancesFrom(location).then((result) => {
             var elements = result.rows[0].elements;
 
