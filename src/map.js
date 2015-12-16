@@ -122,6 +122,22 @@ class Map {
         });
     }
 
+    getBounds(features) {
+        var bounds = new google.maps.LatLngBounds();
+
+        for (let index in features) {
+            if (features.hasOwnProperty(index)) {
+                let coordinates = features[index].geometry.coordinates;
+                bounds.extend(new google.maps.LatLng(coordinates[1], coordinates[0]))
+            }
+        }
+
+        if (this._userLocationMarker.getVisible()) {
+            bounds.extend(this._userLocationMarker.getPosition());
+        }
+        return bounds;
+    }
+
     displayStores(storesFeatures) {
         this.clearStores();
         this._map.data.addGeoJson({
