@@ -38,7 +38,27 @@ class StoreLocator {
         this.initializeMap();
         this._distanceMatrixService = new google.maps.DistanceMatrixService();
         this._retryigGeocoder = new RetryingGeocoder();
+        this._geocodingLoader = this._buildGeocodingLoader();
+        this.storeLocatorContainer.appendChild(this._geocodingLoader);
+    }
 
+    _buildGeocodingLoader() {
+        let geocodingLoader = document.createElement('div');
+
+        geocodingLoader.style.position = 'absolute';
+        geocodingLoader.style.top = '50%';
+        geocodingLoader.style.left = '50%';
+        geocodingLoader.style.width = '150px';
+        geocodingLoader.style.height = '20px';
+        geocodingLoader.style.backgroundColor = 'white';
+        geocodingLoader.style.marginTop = '-12px';
+        geocodingLoader.style.marginLeft = '-75px';
+        geocodingLoader.style.padding = '4px';
+        geocodingLoader.style.boxShadow= 'black 0px 0px 2px';
+        geocodingLoader.style.borderRadius = '2px';
+
+        geocodingLoader.innerHTML = 'Geocoding in progress';
+        return geocodingLoader;
     }
 
     initializeSearchBox() {
@@ -91,7 +111,8 @@ class StoreLocator {
     }
 
     initialState() {
-        if (!this._listPanel ) {
+        this._geocodingLoader.remove();
+        if (!this._listPanel) {
             this._listPanel = new ListPanel(this.parent);
         }
         this._listPanel.setVisible(false);
