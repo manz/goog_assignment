@@ -55,11 +55,11 @@ var mapStyle = [
 
 class Map {
     constructor(parent) {
+        this._selectedStorePositionCallback = null;
         this.mapContainer = document.createElement('div');
         this.mapContainer.style.width = '100%';
         this.mapContainer.style.height = '100%';
         parent.appendChild(this.mapContainer);
-
         this._padding = {};
         this._map = new google.maps.Map(this.mapContainer, {
             center: {lat: 43.609571288668455, lng: 3.878150566101093},
@@ -112,9 +112,21 @@ class Map {
                 anchorPoint: new google.maps.Point(0, -30)
             });
 
+            if (this._selectedStorePositionCallback) {
+                this._selectedStorePositionCallback(point);
+            }
+
             this._infoWindow.open(this._map, anchor);
 
         });
+    }
+
+    getMap() {
+        return this._map;
+    }
+
+    setSelectedStoreCallback(callback) {
+        this._selectedStorePositionCallback = callback;
     }
 
     setPadding(padding) {

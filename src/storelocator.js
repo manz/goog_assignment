@@ -37,9 +37,13 @@ class StoreLocator {
 
         this.initializeMap();
         this._distanceMatrixService = new google.maps.DistanceMatrixService();
+        this._directionsService = new google.maps.DirectionsService();
         this._retryigGeocoder = new RetryingGeocoder();
         this._geocodingLoader = this._buildGeocodingLoader();
         this.storeLocatorContainer.appendChild(this._geocodingLoader);
+        this._directionsRenderer = new google.maps.DirectionsRenderer({
+            preserveViewport: true
+        });
     }
 
     _buildGeocodingLoader() {
@@ -54,7 +58,7 @@ class StoreLocator {
         geocodingLoader.style.marginTop = '-12px';
         geocodingLoader.style.marginLeft = '-75px';
         geocodingLoader.style.padding = '4px';
-        geocodingLoader.style.boxShadow= 'black 0px 0px 2px';
+        geocodingLoader.style.boxShadow = 'black 0px 0px 2px';
         geocodingLoader.style.borderRadius = '2px';
 
         geocodingLoader.innerHTML = 'Geocoding in progress';
@@ -128,12 +132,15 @@ class StoreLocator {
         if (!this.searchBox) {
             this.initializeSearchBox();
         }
+        this._directionsRenderer.setMap(null);
+
+        this._mapComponent.setSelectedStoreCallback(null);
     }
 
     nearest5State(location) {
         this._mapComponent._userLocationMarker.setPosition(location);
         this._mapComponent._userLocationMarker.setVisible(true);
-        this._mapComponent.setPadding({left: 200});
+        this._mapComponent.setPadding({left: 300});
         this.computeDistancesFrom(location).then((result) => {
             var elements = result.rows[0].elements;
 
@@ -151,6 +158,19 @@ class StoreLocator {
             this._listPanel.render(top5);
             this._mapComponent.displayStores(top5);
         });
+
+        this._mapComponent.setSelectedStoreCallback((point) => {
+            this._directionsService.route({
+                origin: location,
+                destination: point,
+                travelMode: google.maps.TravelMode.WALKING
+            }, (response, status) => {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    this._directionsRenderer.setDirections(response);
+                    this._directionsRenderer.setMap(this._mapComponent.getMap())
+                }
+            })
+        })
     }
 
     computeDistancesFrom(location) {
