@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --display-chunks --display-modules --display-origins  --watch"
+    "watch": "webpack --display-chunks --display-modules --display-origins  --watch",
+    "build": "webpack"
   },
   "author": "Emmanuel Peralta <eperalta@webgeoservices.com>",
   "devDependencies": {
