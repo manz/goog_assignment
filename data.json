@@ -1,0 +1,124 @@
+{
+  "bars": [
+    {
+      "name": "Papa Doble",
+      "type": "blue",
+      "address": "6 Rue du Petit Scel",
+      "city": "Montpellier"
+    },
+    {
+      "name": "O'Carolans Irish Pub",
+      "type": "red",
+      "address": "5 Rue du Petit Scel",
+      "city": "Montpellier"
+    },
+    {
+      "name": "Sushi-Bar",
+      "type": "blue",
+      "address": "20 Rue Bernard Délicieux",
+      "city": "Montpellier"
+    },
+    {
+      "name": "Trinque Fougasse",
+      "type": "red",
+      "address": "1581 Route de Mende",
+      "city": "Montpellier"
+    },
+    {
+      "name": "La Distillerie",
+      "type": "blue",
+      "address": "67 Rue de l'Aiguillerie",
+      "city": "Montpellier"
+    },
+    {
+      "name": "Times Café",
+      "address": "7 Rue des Teissiers",
+      "city": "Montpellier",
+      "type": "red"
+    },
+    {
+      "name": "By Coss Bar",
+      "address": "5 Rue Belmont",
+      "city": "Montpellier",
+      "type": "blue"
+    },
+    {
+      "name": "Circus",
+      "address": "3 Rue Collot",
+      "city": "Montpellier",
+      "type": "red"
+    },
+    {
+      "name": "Barberousse",
+      "address": "6 Rue Boussairolles",
+      "city": "Montpellier",
+      "type": "blue"
+    },
+    {
+      "name": "The Egg",
+      "address": "11 Rue du Plan d'Agde",
+      "city": "Montpellier",
+      "type": "red"
+    },
+    {
+      "name": "La Chistera",
+      "address": "2 bis Rue d'Obilion",
+      "city": "Montpellier",
+      "type": "blue"
+    },
+    {
+      "name": "Macadam Pub",
+      "address": "1 Rue des deux Ponts",
+      "city": "Montpellier",
+      "type": "red"
+    },
+    {
+      "name": "Le Montpe'l",
+      "address": "2 Rue Jules Latreilhe",
+      "city": "Montpellier",
+      "type": "blue"
+    },
+    {
+      "name": "Charlie's Beer",
+      "address": "22 Rue Aristide Ollivier",
+      "city": "Montpellier",
+      "type": "red"
+    },
+    {
+      "name": "Fitzpatrick's Irish Pub",
+      "address": "11 Rue du Plan d'Agde",
+      "city": "Montpellier",
+      "type": "blue"
+    },
+    {
+      "name": "Le Bric à Brac",
+      "address": "26 Rue des Écoles Laïques",
+      "city": "Montpellier",
+      "type": "red"
+    },
+    {
+      "name": "Baron Rouge",
+      "address": "2 Rue Delpech, Montpellier",
+      "city": "Montpellier",
+      "type": "blue"
+    },
+    {
+      "name": "Le Shakespeare",
+      "address": "12 Rue de la Petite Loge",
+      "city": "Montpellier",
+      "type": "red"
+    },
+    {
+      "name": "Dude bar",
+      "address": "4 bis rue bernard délicieux",
+      "city": "Montpellier",
+      "type": "green"
+    },
+    {
+      "name": "Le Rebuffy",
+      "address": "2 Rue Rebuffy",
+      "city": "Montpellier",
+      "type": "red"
+    }
+  ]
+}
