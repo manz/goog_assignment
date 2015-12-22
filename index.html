@@ -10,9 +10,13 @@
 <div id="map"></div>
 
 <script type="text/javascript">
+    var dataUrl = 'data.json';
+    if (window.location.protocol === 'file:') {
+        dataUrl = 'http://snes.ninja/goog_assignment/' + dataUrl;
+    }
     initializeStoreLocator({
         parentSelector: '#map',
-        dataUrl: 'data.json'
+        dataUrl: dataUrl
     });
 </script>
 </body>
